@@ -1,0 +1,65 @@
+{
+  "name": "network-monitor-electron",
+  "productName": "Network Monitor",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:exe": "electron . --exe",
+    "start:inprocess": "electron . --inprocess",
+    "rebuild": "electron-rebuild --module-dir ../network-monitor-logic",
+    "build:backend": "npm --prefix ../network-monitor-logic run build:exe",
+    "build": "npm run build:backend && electron-builder --win portable nsis --publish never",
+    "build:app": "electron-builder --win portable nsis --publish never"
+  },
+  "build": {
+    "appId": "com.fakhraei.network-monitor",
+    "productName": "Network Monitor",
+    "asar": true,
+    "npmRebuild": false,
+    "files": [
+      "main.js"
+    ],
+    "extraResources": [
+      {
+        "from": "../network-monitor-logic/dist/network-monitor.exe",
+        "to": "network-monitor-logic/network-monitor.exe"
+      }
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Network-Monitor-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Network-Monitor-${version}-portable.${ext}"
+    }
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.6.0",
+    "electron": "^33.0.0",
+    "electron-builder": "^26.15.3"
+  }
+}

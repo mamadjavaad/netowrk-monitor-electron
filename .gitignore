@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+jspm_packages/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build output - electron-builder
+dist/
+dist-ssr/
+build/
+out/
+*.asar
+
+# Build output - electron-forge / vite / webpack
+.webpack/
+.vite/
+.parcel-cache/
+.cache/
+
+# Packaged installers - don't commit binaries
+*.dmg
+*.exe
+*.msi
+*.pkg
+*.AppImage
+*.snap
+*.deb
+*.rpm
+*.app
+
+# Env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript / tooling cache
+*.tsbuildinfo
+.eslintcache
+.turbo/
+
+# Testing / Coverage
+coverage/
+.nyc_output/
+junit.xml
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editors / IDEs - uncomment if you want
+# .vscode/
+# .idea/
+# *.swp
+# *.swo
+# *~
